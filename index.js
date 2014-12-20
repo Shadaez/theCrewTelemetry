@@ -11,13 +11,13 @@ module.exports = function(port){
     gameid: 0
   },
   callbacks = {error: [],
-               data: []};
+    data: []};
 
-  server.on('error', function (err) {
-    callback('error', err);
-  });
+    server.on('error', function (err) {
+      callback('error', err);
+    });
 
-  server.on('message', function (msg) {
+    server.on('message', function (msg) {
       data = {
         time: msg.readUInt32LE(0),
         angularVelocity: [msg.readFloatLE(4), msg.readFloatLE(8), msg.readFloatLE(12)],
@@ -28,27 +28,27 @@ module.exports = function(port){
         gameID: msg.readUInt32LE(64)
       };
       callback('data', data);
-  });
-
-  server.bind(port || 1337);
-
-  function callback(message, data){
-    var array = callbacks[message] || [];
-    arr.forEach(function(callback){
-      callback(data);
     });
-  }
 
-  return {
-    on: function(message, callback){
-      callbacks.message = callbacks.message || [];
-      callbacks.message.push(callback);
-    },
-    data: function(){
-      return data;
-    },
-    server: function(){
-      return server;
+    server.bind(port || 1337);
+
+    function callback(e, data){
+      var arr = callbacks[e] || [];
+      arr.forEach(function(callback){
+        callback(data);
+      });
     }
+
+    return {
+      on: function(e, callback){
+        callbacks[e] = callbacks[e] || [];
+        callbacks[e].push(callback);
+      },
+      data: function(){
+        return data;
+      },
+      server: function(){
+        return server;
+      }
+    };
   };
-}
