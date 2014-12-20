@@ -1,0 +1,29 @@
+{
+  "name": "crew-telemetry",
+  "version": "1.0.0",
+  "description": "Module to read telemetry data from Ubisift's The Crew.",
+  "main": "index.js",
+  "dependencies": {
+    "socket.io": "^1.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Shadaez/theCrewTelemetry"
+  },
+  "keywords": [
+    "telemetry",
+    "the",
+    "crew",
+    "ubisoft"
+  ],
+  "author": "Justin 'Shadaez' Wheeler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Shadaez/theCrewTelemetry/issues"
+  },
+  "homepage": "https://github.com/Shadaez/theCrewTelemetry"
+}
