@@ -1,11 +1,8 @@
 {
   "name": "crew-telemetry",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Module to read telemetry data from Ubisift's The Crew.",
   "main": "index.js",
-  "dependencies": {
-    "socket.io": "^1.2.1"
-  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
