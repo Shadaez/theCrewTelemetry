@@ -46,9 +46,9 @@ Available Data
 Property        | Value                                                 | Unit
 ----------------|-------------------------------------------------------|--------------------
 time            | Incremented every packet sent.                        | N/A
-angularVelocity | Angular velocity (pitch, roll, yaw)                   | Radians per second
-orientation     | Euleer angles (yaw, pitch, roll)                      | Radians
-velocity        | Linear velocity (lateral, longitudinal, vertical)     | Meters per second
-acceleration    | Linear acceleration (lateral, longitudinal, vertical) | Meters per second²
-position        | Position in world (x, y, z)                           | Meter times 65536
+angularVelocity | Angular velocity [pitch, roll, yaw]                   | Radians per second
+orientation     | Euleer angles [yaw, pitch, roll]                      | Radians
+velocity        | Linear velocity [lateral, longitudinal, vertical]     | Meters per second
+acceleration    | Linear acceleration [lateral, longitudinal, vertical] | Meters per second²
+position        | Position in world [x, y, z]                           | Meter times 65536
 gameID          |                                                       | N/A
