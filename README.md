@@ -37,7 +37,7 @@ ct.on('message', function(msg, rInfo, port){
   ct.parse(msg, rInfo, port);
 });
 
-ct.on('error' function(data){
+ct.on('error' function(err){
   //do stuff
 });
 
