@@ -33,13 +33,6 @@ ct.on('data', function(data){
 ct.on('error' function(data){
   //do stuff
 });
-
-//or you can get the latest data with
-var data = ct.data()
-
-//you can also directly access the dgram server with
-var server = ct.server();
-server.close();
 ```
 Available Data
 ==============

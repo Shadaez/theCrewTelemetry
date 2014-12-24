@@ -6,7 +6,7 @@ module.exports = function(port){
   returner;
 
   ports.forEach(function(port){
-    server = dgram.createSocket('udp4')
+    var server = dgram.createSocket('udp4');
     server.on('error', function (err) {
       callback('error', err);
     });
@@ -21,13 +21,13 @@ module.exports = function(port){
   function callback(e, msg, c, port){
     try{
       if(e == 'data'){
-        callbacks['message'].forEach(function(callback){
+        callbacks.data.forEach(function(callback){
           callback(msg, c, port);
         });
         if (callbacks.data.length >= 1) {
           msg = parseData(msg, c, port);
-          callbacks['data'].forEach(function(callback){
-            callback(data);
+          callbacks.data.forEach(function(callback){
+            callback(msg);
           });
         }
       }
@@ -46,16 +46,13 @@ module.exports = function(port){
       position: [msg.readUInt32LE(52), msg.readUInt32LE(56), msg.readUInt32LE(60)],
       gameID: msg.readUInt32LE(64),
       client: {ip: c.address, port: port}
-    }
+    };
   }
 
   returner = {
     on: function(e, callback){
       callbacks[e] = callbacks[e] || [];
       callbacks[e].push(callback);
-    },
-    server: function(){
-      return server;
     },
     parse: parseData
   };
