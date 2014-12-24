@@ -20,11 +20,13 @@ First, make sure you follow the directions provided [here.](http://forums.ubi.co
   />
 ```
 
+Then ```npm install crew-telemetry```
+
 After that, you can access all the data as a Javascript object like so:
 
 ```javascript
-
-var ct = require('crew-telemetry')(1337); //1337 is the default port. You can also do an array of multiple ports
+//1337 is the default port. You can also do an array of multiple ports
+var ct = require('crew-telemetry')(1337);
 
 ct.on('data', function(data){
   //do stuff
