@@ -24,10 +24,17 @@ After that, you can access all the data as a Javascript object like so:
 
 ```javascript
 
-var ct = require('crew-telemetry')(1337); //1337 is the default port
+var ct = require('crew-telemetry')(1337); //1337 is the default port. You can also do an array of multiple ports
 
 ct.on('data', function(data){
   //do stuff
+});
+
+
+//you can also receive the raw Buffer, remote address information,
+//and port and parse it with the parse method, or parse it yourself.
+ct.on('message', function(msg, rInfo, port){
+  ct.parse(msg, rInfo, port);
 });
 
 ct.on('error' function(data){
