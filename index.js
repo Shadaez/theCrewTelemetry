@@ -46,7 +46,9 @@ module.exports = function(port){
       position: [msg.readUInt32LE(52), msg.readUInt32LE(56), msg.readUInt32LE(60)],
       gameID: msg.readUInt32LE(64)
     };
-    returner.client = (c && port? {ip: c.address, port: port}:undefined);
+    returner.client = (c && port? {ip: c.address, port: port} : undefined);
+
+    return returner;
   }
 
   returner = {
