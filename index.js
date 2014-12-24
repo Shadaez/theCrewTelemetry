@@ -21,7 +21,7 @@ module.exports = function(port){
   function callback(e, msg, c, port){
     try{
       if(e == 'data'){
-        callbacks.data.forEach(function(callback){
+        callbacks.message.forEach(function(callback){
           callback(msg, c, port);
         });
         if (callbacks.data.length >= 1) {
@@ -37,16 +37,16 @@ module.exports = function(port){
   }
 
   function parseData(msg, c, port){
-    return {
+    var returner = {
       time: msg.readUInt32LE(0),
       angularVelocity: [msg.readFloatLE(4), msg.readFloatLE(8), msg.readFloatLE(12)],
       orientation: [msg.readFloatLE(16), msg.readFloatLE(20), msg.readFloatLE(24)],
       acceleration: [msg.readFloatLE(28), msg.readFloatLE(32), msg.readFloatLE(36)],
       velocity: [msg.readFloatLE(40), msg.readFloatLE(44), msg.readFloatLE(48)],
       position: [msg.readUInt32LE(52), msg.readUInt32LE(56), msg.readUInt32LE(60)],
-      gameID: msg.readUInt32LE(64),
-      client: {ip: c.address, port: port}
+      gameID: msg.readUInt32LE(64)
     };
+    returner.client = (c && port? {ip: c.address, port: port}:undefined);
   }
 
   returner = {
