@@ -30,7 +30,6 @@ ct.on('data', function(data){
   //do stuff
 });
 
-
 //you can also receive the raw Buffer, remote address information,
 //and port and parse it with the parse method, or parse it yourself.
 ct.on('message', function(msg, rInfo, port){
